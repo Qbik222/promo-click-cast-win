@@ -2,84 +2,188 @@
 .fav-page.loading
     .spinner-overlay
         .spinner
+
+    .welcome
+        .welcome__title(data-translate="welcomeTitle")
+            span накастуй
+            span перемогу
+        .welcome__found(data-translate="welcomeFound") призовий фонд
+        .welcome__prize(data-translate="welcomePrize") 1 000 000 ₴*
+        a.welcome__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
+        button.welcome__btn.btn.part-btn(data-translate="joinBtn") взяти участь
+        button.welcome__btn.btn.play-btn(data-translate="playBtn") зробити прогноз
+    .info
+        .info__title(data-translate="infoTitle") Прогнозуй The International 2025
+        .info__subtitle(data-translate="infoSubtitle") 3 28 серпня по 14 вересня роби ставки від 350₴ на матчі “Dota 2” у турнірі “The International 2025”. Прогнозуй кожну стадію турніру та примножуй набрані бали.
+        .drop
+            details.dropdown
+                summary(data-translate="datailsBtn")
+                .drop-txt
+                    .drop-txt-list(data-translate="details")
+    .predict
+        .predict__title(data-translate="predictTitle") накастуй перемогу
+        .predict__cards.cards
+            .card
+                .card__text(data-translate="cardText1") Найбільша середня кількість фрагів однією командою за весь турнір
+            .card
+                .card__text(data-translate="cardText2") Визначити команду-лідера за середнім показником загиблих героїв за турнір.
+            .card
+                .card__text(data-translate="cardText3") Найбільша середня кількість асистів однією командою за весь турнір
+            .card
+                .card__text(data-translate="cardText4") Кількість вибраних героїв за весь турнір з усіх
+            .card
+                .card__text(data-translate="cardText5") Визначити гравця-лідера за кількістю загиблих героїв на одній мапі.
+            .card
+                .card__text(data-translate="cardText6") Найбільша кількість асистів одним гравцем за мапу
+            .card
+                .card__text(data-translate="cardText7") Визначити найбільшу кількість фрагів одним гравцем за мапу.
+            .card
+                .card__text(data-translate="cardText8") Переможець турніру
+        .predict__runes
+            .predict__runes-item.rune1
+            .predict__runes-item.rune2
+            .predict__runes-item.rune3
+            .predict__runes-item.rune4
+            .predict__runes-item.rune5
+            .predict__runes-item.rune6
+            .predict__runes-item.rune7
+            .predict__runes-item.rune8
+        .predict__bottom
+            .predict__move-left
+            .predict__chest
+            .predict__move-right
+        .predict__btn
+            .predict__btn-left
+                img(src="img/predict/btn-icon-left.png" alt="favbet")
+            .predict__btn-text(data-translate="makeChoice") зробити вибір
+            .predict__btn-right
+                img(src="img/predict/btn-icon-right.png" alt="favbet")
+        button.predict__confirm-btn(data-translate="confirmBtn") підтвердити
     .table
-        .table__tabs
-            .table__tabs-item.active(data-week="1") #[span(data-translate="tableTab") Faza] 1
-            .table__tabs-item(data-week="2") #[span(data-translate="tableTab") Faza] 2
+        .table__title(data-translate="tableTitle") результати
         .table__head
             .table__row
-                .table__row-item(data-translate="tablePlace") [ MJESTO ]
-                .table__row-item(data-translate="tableId") [ ID ]
-                .table__row-item(data-translate="tablePoints") [ BODOVI ]
-                .table__row-item(data-translate="tablePrize") [ NAGRADA ]
+                .table__row-item(data-translate="tablePlace") Місце
+                .table__row-item(data-translate="tableId") ID
+                .table__row-item(data-translate="tablePoints") Бали
+                .table__row-item(data-translate="tableMultiple") Х
+                .table__row-item(data-translate="tablePointsMultiple") Х Бали
+                .table__row-item(data-translate="tablePrize") Приз*
         .table__body#table
-            .table__row.place1.you
-                .table__row-item 01 #[span.you(data-translate="you") ti]
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row.palce2
-                .table__row-item 02
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row.palce3
-                .table__row-item 03
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
             .table__row
-                .table__row-item 04
+                .table__row-item 1
                 .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
-                .table__row-item 05
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
-                .table__row-item 06
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
-                .table__row-item 07
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
-                .table__row-item 08
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
-                .table__row-item 09
-                .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
-            .table__row
+                .table__row-item 999999
                 .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
                 .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
+            .table__row
+                .table__row-item 1
+                .table__row-item 4538***
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
+
         .table__body#tableOther
             .table__row
-                .table__row-item 38
+                .table__row-item 1
                 .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
             .table__row.you
-                .table__row-item 39 #[span.you(data-translate="you") ti]
+                .table__row-item 1
                 .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
             .table__row
-                .table__row-item 40
+                .table__row-item 1
                 .table__row-item 4538***
-                .table__row-item 32.9
-                .table__row-item 350 € #[span.table-coin]
+                .table__row-item 999999
+                .table__row-item 10
+                .table__row-item 9999999
+                .table__row-item 100000
 
+        a.table__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
+        button.table__btn.btn.part-btn(data-translate="joinBtn") взяти участь
+        button.table__btn.btn.play-btn(data-translate="playBtn") зробити прогноз
     .drop
         details.dropdown
             summary(data-translate="rulseBtn")

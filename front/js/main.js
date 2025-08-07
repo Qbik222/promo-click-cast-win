@@ -50,7 +50,7 @@
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
         participateBtns = document.querySelectorAll('.part-btn'),
-        redirectBtns = document.querySelectorAll('.btn-join'),
+        redirectBtns = document.querySelectorAll('.play-btn'),
         loader = document.querySelector(".spinner-overlay")
 
     const ukLeng = document.querySelector('#ukLeng');
@@ -462,5 +462,6 @@
 
     // loadTranslations()
     //     .then(init) // запуск ініту сторінки
+    // init()
 
 })();
