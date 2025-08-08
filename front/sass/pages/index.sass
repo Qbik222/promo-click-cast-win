@@ -21,6 +21,9 @@ body
   align-items: center
   overflow: hidden
   .btn
+    display: flex
+    align-items: center
+    justify-content: center
     width: fit-content
     min-width: 230px
     height: 48px
@@ -35,6 +38,50 @@ body
     text-shadow: 0 1px 2px #055A40
     &:hover
       background: url("../img/btn-hover.png") no-repeat 0 0/contain
+  .btn2
+    display: flex
+    align-items: center
+    justify-content: center
+    width: fit-content
+    min-width: 150px
+    height: 48px
+    text-align: center
+    color: $white
+    font-size: 18px
+    font-family: $font-favbet-display-med
+    text-transform: uppercase
+    background: url("../img/btn2.png") no-repeat 0 0/contain
+    border: none
+    transition: background .4s ease-in-out
+    text-shadow: 0 1px 2px #055A40
+    &:hover
+      background: url("../img/btn2-hover.png") no-repeat 0 0/contain
+  .btn-popup
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 265px
+    height: 40px
+    background: rgba(55, 20, 46, 0.60)
+    border-radius: 8px
+    border: 1px solid $magenta
+    box-shadow: 0 0 7.3px 0 rgba(255, 0, 79, 0.92)
+    font-family: $font-favbet-display-med
+    color: $white
+    font-size: 15px
+    padding: 14px 16px 15px 16px
+    transition: color .4s ease-in-out
+    &::after
+      content: ""
+      display: block
+    &::after
+      width: 18px
+      height: 11px
+      background: url("../img/drop-icon.png") no-repeat 0 0/contain
+      transform: translate(40%, 0) rotate(180deg)
+    &:hover
+      color: #FF99C2
+      text-shadow: 0 1px 0 rgba(161, 27, 79, 0.60)
 
 // loader
 
@@ -88,7 +135,47 @@ body
       pointer-events: none
 
 .smoke
-  width: 2000px
+  width: 1400px
+  height: 270px
+  position: absolute
+  left: 50%
+  top: 380px
+  z-index: 2
+  opacity: .7
+  pointer-events: none
+  transform: translate(-50%, 0)
+  background: url("../img/welcome/bottom-smoke-desc.png") no-repeat 0 0/cover
+  &::before, &::after
+    content: ""
+    position: absolute
+  &::before
+    background: linear-gradient(180deg, rgba(9, 10, 24, 0.00) 58.59%, #090A18 78.44%)
+    transform: translate(-50%, 0)
+    width: 120%
+    height: 70%
+    left: 50%
+    bottom: 0
+  &::after
+    bottom: 0
+    right: 0
+    background: linear-gradient(90deg, rgba(9, 10, 24, 0.00) 58.59%, #090A18 78.44%)
+    height: 100%
+    width: 30%
+  &__decor
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    &::before
+      content: ""
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      height: 100%
+      width: 30%
+      background: linear-gradient(270deg, rgba(9, 10, 24, 0.00) 58.59%, #090A18 78.44%)
 
 
 .welcome
@@ -154,14 +241,14 @@ body
     &::before
       content: ""
       display: block
-      height: 20%
+      height: 35%
       width: 100%
       position: absolute
       bottom: 0
       z-index: 0
       pointer-events: none
       left: 0
-      background: linear-gradient(180deg, rgba(9, 10, 24, 0.00) 57.21%, #090A18 93.73%)
+      background: linear-gradient(180deg, rgba(9, 10, 24, 0.00) 27.21%, #090A18 77.73%)
   &__wrap
     display: flex
     flex-direction: column
@@ -174,6 +261,269 @@ body
     position: relative
     margin-top: 5px
 
+.info
+  z-index: 3
+  position: relative
+  display: flex
+  align-items: center
+  flex-direction: column
+  margin-top: -30px
+  padding-bottom: 30px
+  &__title
+    font-size: 32px
+    span
+      &::after
+        text-shadow: 0 4px 6.6px rgba(68, 182, 116, 0.35)
+  &__subtitle
+    font-size: 18px
+    line-height: 26px
+    color: $white
+    font-family: $font-favbet-text-reg
+    max-width: 550px
+    text-align: center
+    z-index: 1
+    margin-top: 12px
+  &__details
+    margin-top: 20px
+  &__ward
+    &-left, &-right
+      position: absolute
+      z-index: 0
+      pointer-events: none
+    &-left
+      max-width: 200px
+      left: -155px
+      top: -85px
+    &-right
+      max-width: 160px
+      top: -80px
+      right: -125px
+.predict
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-bottom: 25px
+  &__title
+    font-size: 32px
+    span
+      &::after
+        text-shadow: 0 4px 6.6px rgba(161, 27, 79, 0.60)
+      &::before
+        background: linear-gradient(180deg, #FFF 28.84%, #FF267E 222.3%)
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+  &__cards
+    display: flex
+    align-items: center
+    position: relative
+    width: 1000px
+    height: 320px
+    .card
+      padding: 35px 35px 65px 35px
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      width: 350px
+      height: 340px
+      background: url("../img/predict/card-bg.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      transition: all .5s ease-in-out
+      pointer-events: none
+      z-index: 0
+      opacity: 0
+      display: flex
+      align-items: center
+      flex-direction: column
+      &._active
+        opacity: 1
+        pointer-events: initial
+        z-index: 1
+      &._left
+        opacity: 1
+        transform: translate(-140% , -50%)
+        pointer-events: initial
+        z-index: 1
+      &._right
+        opacity: 1
+        z-index: 1
+        transform: translate(40%, -50%)
+        pointer-events: initial
+      &__sun
+        width: 250px
+        height: 150px
+        margin: 0 0 -42px 0
+        background: url("../img/predict/card-sun.png") no-repeat 0 0/contain
+      &__text
+        color: $white
+        padding: 8px
+        width: 260px
+        height: 120px
+        background: url("../img/predict/card-text-frame.png") no-repeat 0 0/cover
+        background-size: 100% 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        text-align: center
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.50)
+        font-size: 18px
+        font-family: $font-favbet-text-reg
+      &__rune
+        position: absolute
+        left: 50%
+        top: 65px
+        width: 150px
+        height: 50px
+        transform: translate(-50%, 0)
+        &.rune1
+          background: url("../img/predict/runes/rune1.png") no-repeat 50% 0/contain
+        &.rune2
+          background: url("../img/predict/runes/rune2.png") no-repeat 50% 0/contain
+        &.rune3
+          background: url("../img/predict/runes/rune3.png") no-repeat 50% 0/contain
+        &.rune4
+          background: url("../img/predict/runes/rune4.png") no-repeat 50% 0/contain
+        &.rune5
+          background: url("../img/predict/runes/rune5.png") no-repeat 50% 0/contain
+        &.rune6
+          background: url("../img/predict/runes/rune6.png") no-repeat 50% 0/contain
+        &.rune7
+          background: url("../img/predict/runes/rune7.png") no-repeat 50% 0/contain
+        &.rune8
+          background: url("../img/predict/runes/rune8.png") no-repeat 50% 0/contain
+  &__runes
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 205px
+    height: 50px
+    position: relative
+    &::before
+      content: ""
+      display: block
+      width: 383px
+      height: 364px
+      top: -150px
+      left: 50%
+      transform: translate(-50%, 0)
+      pointer-events: none
+      position: absolute
+      z-index: 0
+      background: url("../img/predict/chest.png") no-repeat 0 0/contain
+    &-item
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      opacity: 0
+      pointer-events: none
+      width: 29px
+      height: 32px
+      transform-origin: center
+      z-index: 1
+      &._active
+        opacity: 1
+        pointer-events: initial
+        transform: scale(1.45) translate(-50%, -50%)
+      &._left1
+        opacity: 1
+        pointer-events: initial
+        transform: scale(1.3) translate(-170%, -60%)
+      &._left2
+        opacity: 1
+        pointer-events: initial
+        transform: scale(1.15) translate(-310%, -70%)
+      &._right1
+        opacity: 1
+        pointer-events: initial
+        transform: scale(1.3) translate(60%, -60%)
+      &._right2
+        opacity: 1
+        pointer-events: initial
+        transform: scale(1.15) translate(180%, -70%)
+
+      &.rune1
+        background: url("../img/predict/runes/slider/rune1.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune1-active.png") no-repeat 50% 0/contain
+      &.rune2
+        background: url("../img/predict/runes/slider/rune2.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune2-active.png") no-repeat 50% 0/contain
+      &.rune3
+        background: url("../img/predict/runes/slider/rune3.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune3-active.png") no-repeat 50% 0/contain
+      &.rune4
+        background: url("../img/predict/runes/slider/rune4.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune4-active.png") no-repeat 50% 0/contain
+      &.rune5
+        background: url("../img/predict/runes/slider/rune5.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune5-active.png") no-repeat 50% 0/contain
+      &.rune6
+        background: url("../img/predict/runes/slider/rune6.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune6-active.png") no-repeat 50% 0/contain
+      &.rune7
+        background: url("../img/predict/runes/slider/rune7.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune7-active.png") no-repeat 50% 0/contain
+      &.rune8
+        background: url("../img/predict/runes/slider/rune8.png") no-repeat 50% 0/contain
+        &._active
+          background: url("../img/predict/runes/slider/rune8-active.png") no-repeat 50% 0/contain
+  &__bottom
+    z-index: 3
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 370px
+  &__move
+    &-left, &-right
+      width: 52px
+      height: 52px
+      position: relative
+      cursor: pointer
+      transition: background .5s ease-in-out
+      &::before
+        content: ""
+        display: block
+        width: 91px
+        height: 91px
+        position: absolute
+        pointer-events: none
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%) rotate(0deg)
+        background: url("../img/predict/runes/runes-move.png") no-repeat 50% 0/contain
+    &-left
+      background: url("../img/predict/move-arrow-left.png") no-repeat 0 0/contain
+      &:hover
+        background: url("../img/predict/move-arrow-left-hover.png") no-repeat 0 0/contain
+    &-right
+      background: url("../img/predict/move-arrow-right.png") no-repeat 0 0/contain
+      &:hover
+        background: url("../img/predict/move-arrow-right-hover.png") no-repeat 0 0/contain
+  &__btn
+    z-index: 4
+    margin-top: 25px
+    &::before
+      content: ""
+      display: block
+      background: url("../img/predict/popup-btn-icon.png") no-repeat 0 0/contain
+      width: 38px
+      height: 46px
+      margin-left: -30px
+  &__confirm-btn
+    z-index: 4
+    margin-top: 25px
+    &._lock
+      opacity: .7
+      pointer-events: none
+
 .table
   display: flex
   flex-direction: column
@@ -182,35 +532,34 @@ body
   width: 405px
   min-height: 440px
   z-index: 1
-  &__tabs
-    display: flex
-    align-items: center
-    justify-content: center
-    gap: 6px
-    margin-bottom: 20px
-    &-item
-      display: flex
-      justify-content: center
-      align-items: center
-      font-size: 16px
-      &.active
-        background-color: $magenta
-      &:hover
-        background: $magenta
-      span
-        font-family: inherit
-        margin-right: .3em
-
+  padding-top: 25px
+  &__title
+    font-size: 32px
+    span
+      font-family: $font-favbet-display-med
+      &::after
+        text-shadow: 0 4px 6.6px rgba(161, 27, 79, 0.60)
+      &::before
+        background: linear-gradient(180deg, #FFF 28.84%, #FF267E 222.3%)
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
   &__body
     width: 100%
     display: flex
     flex-direction: column
     align-items: center
   &__row
-    display: flex
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    grid-template-rows: 1fr
+    grid-column-gap: 5px
+    grid-row-gap: 5px
     width: 100%
     align-items: center
     position: relative
+    border-bottom: 1px solid rgba($magenta, .2)
+    margin-bottom: 10px
     &.you
       background: $white
       .table__row-item
@@ -224,8 +573,16 @@ body
       align-items: center
       justify-content: center
       color: $white
-      //font-family: $font-suisse-intl-reg
+      font-family: $font-favbet-text-reg
       font-size: 12px
+      background: linear-gradient(180deg, #FFF 28.84%, #FF267E 222.3%)
+      background-clip: text
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      &:first-child
+        text-align: left
+        justify-content: flex-start
+        padding-left: 7px
     &.place1, &.place2, &.place3
       .you
         position: absolute
@@ -260,6 +617,12 @@ body
     width: 100%
     display: flex
     align-items: center
+    margin: 20px 0 10px 0
+    .table__row-item
+      font-family: $font-favbet-display-med
+      font-size: 16px
+      &:first-child
+        padding-left: 10px
 
 
 .drop

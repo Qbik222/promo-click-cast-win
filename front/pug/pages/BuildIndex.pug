@@ -4,6 +4,7 @@
         .spinner
 
     .smoke
+        .smoke__decor
     .welcome
         .welcome__title._title(data-translate="welcomeTitle")
             span(data-text="накастуй") накастуй
@@ -11,58 +12,68 @@
         .welcome__wrap
             .welcome__found._title(data-translate="welcomeFound") #[span(data-text="призовий фонд") призовий фонд]
             .welcome__prize(data-translate="welcomePrize") #[span 1 000 000 ₴] #[span * ]
-            a.welcome__btn.btn.unauth-msg.hide(data-translate="authBtn" href="/login") авторизуйся
-            button.welcome__btn.btn.part-btn(data-translate="joinBtn") взяти участь
+            a.welcome__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
+            button.welcome__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
             button.welcome__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
     .info
-        .info__title(data-translate="infoTitle") Прогнозуй The International 2025
+        .info__ward-right
+            img(src="img/info/right-ward.png" alt="favbet")
+        .info__ward-left
+            img(src="img/info/left-ward.png" alt="favbet")
+        .info__title._title(data-translate="infoTitle") #[span(data-text="Прогнозуй The International 2025") Прогнозуй The International 2025]
         .info__subtitle(data-translate="infoSubtitle") 3 28 серпня по 14 вересня роби ставки від 350₴ на матчі “Dota 2” у турнірі “The International 2025”. Прогнозуй кожну стадію турніру та примножуй набрані бали.
-        .drop
-            details.dropdown
-                summary(data-translate="datailsBtn")
-                .drop-txt
-                    .drop-txt-list(data-translate="details")
+        button.info__details.btn-popup(data-translate="infoDetails") Деталі
     .predict
-        .predict__title(data-translate="predictTitle") накастуй перемогу
+        .predict__title._title(data-translate="predictTitle") #[span(data-text="накастуй перемогу") накастуй перемогу]
         .predict__cards.cards
-            .card
+            .card._active
+                .card__sun
+                    .card__rune.rune1
                 .card__text(data-translate="cardText1") Найбільша середня кількість фрагів однією командою за весь турнір
-            .card
+            .card._right
+                .card__sun
+                    .card__rune.rune2
                 .card__text(data-translate="cardText2") Визначити команду-лідера за середнім показником загиблих героїв за турнір.
             .card
+                .card__sun
+                    .card__rune.rune3
                 .card__text(data-translate="cardText3") Найбільша середня кількість асистів однією командою за весь турнір
             .card
+                .card__sun
+                    .card__rune.rune4
                 .card__text(data-translate="cardText4") Кількість вибраних героїв за весь турнір з усіх
             .card
+                .card__sun
+                    .card__rune.rune5
                 .card__text(data-translate="cardText5") Визначити гравця-лідера за кількістю загиблих героїв на одній мапі.
             .card
+                .card__sun
+                    .card__rune.rune6
                 .card__text(data-translate="cardText6") Найбільша кількість асистів одним гравцем за мапу
             .card
+                .card__sun
+                    .card__rune.rune7
                 .card__text(data-translate="cardText7") Визначити найбільшу кількість фрагів одним гравцем за мапу.
-            .card
+            .card._left
+                .card__sun
+                    .card__rune.rune8
                 .card__text(data-translate="cardText8") Переможець турніру
         .predict__runes
-            .predict__runes-item.rune1
-            .predict__runes-item.rune2
-            .predict__runes-item.rune3
+            .predict__runes-item.rune1._active
+            .predict__runes-item.rune2._right1
+            .predict__runes-item.rune3._right2
             .predict__runes-item.rune4
             .predict__runes-item.rune5
             .predict__runes-item.rune6
-            .predict__runes-item.rune7
-            .predict__runes-item.rune8
+            .predict__runes-item.rune7._left2
+            .predict__runes-item.rune8._left1
         .predict__bottom
             .predict__move-left
-            .predict__chest
             .predict__move-right
-        .predict__btn
-            .predict__btn-left
-                img(src="img/predict/btn-icon-left.png" alt="favbet")
-            .predict__btn-text(data-translate="makeChoice") зробити вибір
-            .predict__btn-right
-                img(src="img/predict/btn-icon-right.png" alt="favbet")
-        button.predict__confirm-btn(data-translate="confirmBtn") підтвердити
+        button.predict__btn.btn-popup(data-translate="makeChoice") зробити вибір
+        button.predict__confirm-btn.btn2(data-translate="confirmBtn") підтвердити
     .table
-        .table__title(data-translate="tableTitle") результати
+        .table__title._title(data-translate="tableTitle") #[span(data-text="результати") результати]
         .table__head
             .table__row
                 .table__row-item(data-translate="tablePlace") Місце
@@ -81,7 +92,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -89,7 +100,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 100
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -97,7 +108,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 1000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -105,7 +116,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -113,7 +124,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -121,7 +132,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -129,7 +140,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -137,7 +148,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -145,7 +156,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -153,7 +164,7 @@
                 .table__row-item 100000
 
             .table__row
-                .table__row-item 1
+                .table__row-item 10000
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -184,8 +195,8 @@
                 .table__row-item 100000
 
         a.table__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
-        button.table__btn.btn.part-btn(data-translate="joinBtn") взяти участь
-        button.table__btn.btn.play-btn(data-translate="playBtn") зробити прогноз
+        button.table__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
+        button.table__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
     .drop
         details.dropdown
             summary(data-translate="rulseBtn")
