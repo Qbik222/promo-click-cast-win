@@ -3,15 +3,17 @@
     .spinner-overlay
         .spinner
 
+    .smoke
     .welcome
-        .welcome__title(data-translate="welcomeTitle")
-            span накастуй
-            span перемогу
-        .welcome__found(data-translate="welcomeFound") призовий фонд
-        .welcome__prize(data-translate="welcomePrize") 1 000 000 ₴*
-        a.welcome__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
-        button.welcome__btn.btn.part-btn(data-translate="joinBtn") взяти участь
-        button.welcome__btn.btn.play-btn(data-translate="playBtn") зробити прогноз
+        .welcome__title._title(data-translate="welcomeTitle")
+            span(data-text="накастуй") накастуй
+            span(data-text="перемогу") перемогу
+        .welcome__wrap
+            .welcome__found._title(data-translate="welcomeFound") #[span(data-text="призовий фонд") призовий фонд]
+            .welcome__prize(data-translate="welcomePrize") #[span 1 000 000 ₴] #[span * ]
+            a.welcome__btn.btn.unauth-msg.hide(data-translate="authBtn" href="/login") авторизуйся
+            button.welcome__btn.btn.part-btn(data-translate="joinBtn") взяти участь
+            button.welcome__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
     .info
         .info__title(data-translate="infoTitle") Прогнозуй The International 2025
         .info__subtitle(data-translate="infoSubtitle") 3 28 серпня по 14 вересня роби ставки від 350₴ на матчі “Dota 2” у турнірі “The International 2025”. Прогнозуй кожну стадію турніру та примножуй набрані бали.
