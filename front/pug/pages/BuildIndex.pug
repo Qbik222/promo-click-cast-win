@@ -23,7 +23,7 @@
             img(src="img/info/left-ward.png" alt="favbet")
         .info__title._title(data-translate="infoTitle") #[span(data-text="Прогнозуй The International 2025") Прогнозуй The International 2025]
         .info__subtitle(data-translate="infoSubtitle") 3 28 серпня по 14 вересня роби ставки від 350₴ на матчі “Dota 2” у турнірі “The International 2025”. Прогнозуй кожну стадію турніру та примножуй набрані бали.
-        button.info__details.btn-popup(data-translate="infoDetails") Деталі
+        button.info__details.btn-popup.open-btn(data-translate="infoDetails" data-popup="detailsPopup") Деталі
     .predict
         .predict__title._title(data-translate="predictTitle") #[span(data-text="накастуй перемогу") накастуй перемогу]
         .predict__cards.cards
@@ -77,7 +77,7 @@
             .predict__last-text
                 .predict__last-text-item(data-translate="lastPredict") Твій останній прогноз : #[span.last-predict Game Hunters]
                 .predict__last-text-item(data-translate="changePredict") Ти можеш змінити його до 10.09.2025 включно.
-        button.predict__btn.btn-popup(data-translate="makeChoice") зробити вибір
+        button.predict__btn.btn-popup.open-btn(data-translate="makeChoice" data-popup="predict1") зробити вибір
         button.predict__confirm-btn.btn2(data-translate="confirmBtn") підтвердити
         .predict__multi
             .predict__multi-text(data-translate="multiText") твій множник
@@ -217,7 +217,7 @@
         button.table__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
         button.table__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
         .table__bottom(data-translate="tableBottom") *Загальний призовий фонд Акції «Накастуй перемогу» складається з 1 000 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – З 28 серпня 2025 року до 14 вересня 2025
-        button.table__popup-btn.btn-popup(data-translate="rulesBtn") Офіційні правила акції
+        button.table__popup-btn.btn-popup.open-btn(data-translate="rulesBtn" data-popup="rulesPopup") Офіційні правила акції
     .popups.opacity
         .popup(data-popup="detailsPopup")
             .popup__title(data-translate="detailsPopupTitle") деталі акції

@@ -51,7 +51,11 @@
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
         participateBtns = document.querySelectorAll('.part-btn'),
         redirectBtns = document.querySelectorAll('.play-btn'),
-        loader = document.querySelector(".spinner-overlay")
+        loader = document.querySelector(".spinner-overlay"),
+        detailsPopupBtn = document.querySelector(".info__details"),
+        rulesPopupBtn = document.querySelector(".table__popup-btn")
+
+
 
     const ukLeng = document.querySelector('#ukLeng');
     const enLeng = document.querySelector('#enLeng');
@@ -129,18 +133,58 @@
             }
         }
 
+
+
         function quickCheckAndRender() {
-            checkUserAuth()
-                .then(loadUsers)
-                .then(() =>{
-                    setTimeout(hideLoader, 300);
-                    document.querySelectorAll(".table__tabs-item").forEach((tab, i) =>{
-                        tab.classList.remove('active');
-                        if(i === activeWeek - 1) tab.classList.add('active');
-                    })
-                    // renderUsers(activeWeek, tableData);
-                    participateBtns.forEach(btn => btn.addEventListener('click', participate));
-                })
+            // checkUserAuth()
+            //     .then(loadUsers)
+            //     .then(() =>{
+            //         setTimeout(hideLoader, 300);
+            //         document.querySelectorAll(".table__tabs-item").forEach((tab, i) =>{
+            //             tab.classList.remove('active');
+            //             if(i === activeWeek - 1) tab.classList.add('active');
+            //         })
+            //         // renderUsers(activeWeek, tableData);
+            //         participateBtns.forEach(btn => btn.addEventListener('click', participate));
+            //     })
+
+            setTimeout(hideLoader, 300);
+
+            document.querySelectorAll('.popup__close').forEach(closeBtn => {
+                closeBtn.addEventListener('click', closeAllPopups);
+            });
+
+            document.querySelectorAll('.open-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const popupAttr = btn.getAttribute('data-popup');
+                    openPopupByAttr(popupAttr);
+                });
+            });
+
+
+            // document.querySelector('.popups').addEventListener('click', (e) => {
+            //     const openPopupEl = document.querySelector('.popup:not(.active)');
+            //
+            //     console.log(openPopupEl);
+            //     console.log(openPopupEl.contains(e.target));
+            //     console.log(e.target);
+            //
+            //     // if (openPopupEl && !openPopupEl.contains(e.target)) {
+            //     //     closeAllPopups();
+            //     // }
+            // });
+
+
+            document.querySelector('.popups').addEventListener('click', (e) => {
+                const openPopupEl = document.querySelector('.popup.active');
+                const isInside = openPopupEl ? openPopupEl.contains(e.target) : false;
+                if (openPopupEl && !isInside) {
+                    closeAllPopups();
+                }
+            });
+
+            // participateBtns.forEach(btn => btn.addEventListener('click', participate));
+
             }
 
         const waitForUserId = new Promise((resolve) => {
@@ -156,6 +200,26 @@
         });
 
         await waitForUserId;
+    }
+
+    function closeAllPopups() {
+        document.querySelectorAll('.popup').forEach(p => p.classList.remove('active'));
+        document.querySelector('.popups').classList.add('opacity');
+        document.body.style.overflow = 'auto';
+    }
+
+    function openPopupByAttr(popupAttr) {
+        const allPopups = document.querySelectorAll('.popup');
+        allPopups.forEach(p => p.classList.remove('active'));
+        document.body.style.overflow = 'hidden';
+
+        console.log(popupAttr);
+
+        const targetPopup = document.querySelector(`.popup[data-popup="${popupAttr}"]`);
+        if (targetPopup) {
+            targetPopup.classList.add('active');
+            document.querySelector('.popups').classList.remove('opacity');
+        }
     }
 
     function loadTranslations() {
@@ -462,6 +526,6 @@
 
     // loadTranslations()
     //     .then(init) // запуск ініту сторінки
-    // init()
+    init()
 
 })();

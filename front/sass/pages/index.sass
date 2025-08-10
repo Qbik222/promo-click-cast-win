@@ -882,6 +882,7 @@ body
   display: flex
   align-items: center
   justify-content: center
+  transition: .7s ease-in-out
   &.opacity
     opacity: 0
     z-index: 0
@@ -904,9 +905,12 @@ body
   box-shadow: 0 0 7.3px 0 rgba(255, 0, 79, 0.92)
   backdrop-filter: blur(8px)
   padding: 16px 10px
+  z-index: 0
+  transition: .7s ease-in-out
   &.active
     opacity: 1
     pointer-events: initial
+    z-index: 2
   &__title
     color: $white
     text-align: center
