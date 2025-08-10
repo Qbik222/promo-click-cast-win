@@ -20,6 +20,7 @@ body
   flex-direction: column
   align-items: center
   overflow: hidden
+  padding-bottom: 100px
   .btn
     display: flex
     align-items: center
@@ -71,6 +72,7 @@ body
     font-size: 15px
     padding: 14px 16px 15px 16px
     transition: color .4s ease-in-out
+    z-index: 3
     &::after
       content: ""
       display: block
@@ -110,7 +112,7 @@ body
 ._title
   span
     position: relative
-    font-family: $font-favbet-display-bold
+    font-family: $font-favbet-display-med
     text-transform: uppercase
     color: transparent
     &::before
@@ -145,6 +147,10 @@ body
   pointer-events: none
   transform: translate(-50%, 0)
   background: url("../img/welcome/bottom-smoke-desc.png") no-repeat 0 0/cover
+  @media screen and (max-width: 1100px)
+    background: url("../img/welcome/bottom-smoke-tab.png") no-repeat 0 0/cover
+  @media screen and (max-width: 600px)
+    background: url("../img/welcome/bottom-smoke-mob.png") no-repeat 0 0/cover
   &::before, &::after
     content: ""
     position: absolute
@@ -154,7 +160,7 @@ body
     width: 120%
     height: 70%
     left: 50%
-    bottom: 0
+    bottom: -2px
   &::after
     bottom: 0
     right: 0
@@ -189,6 +195,10 @@ body
   background: url("../img/welcome/bg-desc.jpg") no-repeat -5px 0/cover
   position: relative
   padding: 10px 10px 130px 10px
+  @media screen and (max-width: 1100px)
+    background: url("../img/welcome/bg-tab.jpg") no-repeat 50% 0px/contain
+  @media screen and (max-width: 600px)
+    background: url("../img/welcome/bg-mob.jpg") no-repeat 50% 0px/contain
   &::before, &::after
     content: ""
     display: block
@@ -199,10 +209,10 @@ body
     z-index: 0
     pointer-events: none
   &::before
-    left: 0
+    left: -3px
     background: linear-gradient(270deg, rgba(9, 10, 24, 0.00) 57.21%, #090A18 93.73%)
   &::after
-    right: 0
+    right: -3px
     background: linear-gradient(90deg, rgba(9, 10, 24, 0.00) 57.21%, #090A18 93.73%)
   &__title
     z-index: 1
@@ -216,6 +226,7 @@ body
         margin: -10px 0 0 64px
   &__found
     margin-top: 5px
+    z-index: 3
     span
       font-size: 24px
       font-family: $font-favbet-display-med
@@ -229,9 +240,11 @@ body
     font-family: $font-favbet-display-bold
     font-size: 64px
     white-space: nowrap
-    z-index: 1
     display: flex
     align-items: flex-start
+    text-shadow: 0 2px 2px rgba(9, 12, 51, 0.92)
+    //z-index: 3
+    z-index: 1
     span
       font-family: inherit
       &:nth-child(2)
@@ -269,6 +282,15 @@ body
   flex-direction: column
   margin-top: -30px
   padding-bottom: 30px
+  .smoke
+    top: 0
+    width: 1375px
+    height: 300px
+    background: url("../img/info/ward-smoke-desc.png") no-repeat 0 0/cover
+    @media screen and (max-width: 1100px)
+      background: url("../img/info/ward-smoke-tab.png") no-repeat 0 0/cover
+    @media screen and (max-width: 600px)
+      background: url("../img/info/ward-smoke-mob.png") no-repeat 0 0/cover
   &__title
     font-size: 32px
     span
@@ -305,6 +327,7 @@ body
   padding-bottom: 25px
   &__title
     font-size: 32px
+    z-index: 4
     span
       &::after
         text-shadow: 0 4px 6.6px rgba(161, 27, 79, 0.60)
@@ -319,6 +342,7 @@ body
     position: relative
     width: 1000px
     height: 320px
+    z-index: 3
     .card
       padding: 35px 35px 65px 35px
       position: absolute
@@ -341,12 +365,12 @@ body
         pointer-events: initial
         z-index: 1
       &._left
-        opacity: 1
+        opacity: .7
         transform: translate(-140% , -50%)
         pointer-events: initial
         z-index: 1
       &._right
-        opacity: 1
+        opacity: .7
         z-index: 1
         transform: translate(40%, -50%)
         pointer-events: initial
@@ -399,6 +423,7 @@ body
     width: 205px
     height: 50px
     position: relative
+    z-index: 2
     &::before
       content: ""
       display: block
@@ -523,7 +548,51 @@ body
     &._lock
       opacity: .7
       pointer-events: none
-
+  &__last
+    z-index: 2
+    display: flex
+    align-items: center
+    margin-top: 35px
+    background: rgba(4, 6, 19, 0.25)
+    border: 1px solid rgba(255, 255, 255, 0.15)
+    border-radius: 8px
+    padding: 8px 16px
+    &-icon
+      max-width: 24px
+      filter: drop-shadow( 0 4px 8.2px rgba(93, 221, 196, 0.87))
+    &-text
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: center
+      margin-left: 16px
+      color: $white
+      font-family: $font-favbet-text-reg
+      .last-predict
+        font-family: $font-favbet-text-bold
+  &__multi
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 2
+    margin-top: 25px
+    &-text
+      font-family: $font-favbet-display-med
+      color: $white
+      text-shadow: 0 1px 0 rgba(161, 27, 79, 0.60)
+      font-size: 15px
+    &-counter
+      width: 56px
+      height: 57px
+      background: url("../img/predict/multi-frame.png") no-repeat 50% 0/contain
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #FF267E
+      font-family: $font-favbet-display-bold
+      font-size: 22px
+      padding-right: 1px
+      margin-left: 16px
 .table
   display: flex
   flex-direction: column
@@ -533,6 +602,46 @@ body
   min-height: 440px
   z-index: 1
   padding-top: 25px
+  position: relative
+  //&__viewport
+  //  max-width: 100vw
+  //  //overflow: hidden
+  .smoke
+    z-index: 0
+    opacity: 1
+    &__animal
+      position: absolute
+    &.dragon
+      bottom: auto
+      top: -80px
+      background: url("../img/table/smoke-dragon.png") no-repeat 0 0/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/table/smoke-dragon-mob.png") no-repeat 0 0/cover
+      .smoke
+        &__animal
+          max-width: 510px
+          top: -185px
+          left: 210px
+    &.dog
+      top: auto
+      bottom: -20px
+      background: url("../img/table/smoke-dog.png") no-repeat 0 0/cover
+      @media screen and (max-width: 1100px)
+          background: url("../img/table/smoke-dog-tab.png") no-repeat 0 0/cover
+          width: 837px
+          height: 308px
+      @media screen and (max-width: 600px)
+        background: url("../img/table/smoke-dog-mob.png") no-repeat 0 0/cover
+      .smoke
+        &__animal
+          right: 130px
+          bottom: 0
+          max-width: 440px
+          z-index: 0
+      &::before
+        z-index: 1
+        background: linear-gradient(180deg, rgba(9, 10, 24, 0) 28.59%, #090A18 88.44%)
+
   &__title
     font-size: 32px
     span
@@ -549,6 +658,7 @@ body
     display: flex
     flex-direction: column
     align-items: center
+    z-index: 1
   &__row
     display: grid
     grid-template-columns: repeat(6, 1fr)
@@ -560,14 +670,6 @@ body
     position: relative
     border-bottom: 1px solid rgba($magenta, .2)
     margin-bottom: 10px
-    &.you
-      background: $white
-      .table__row-item
-        color: $blue
-      .you
-        //font-family: $font-favbet-text-reg
-        text-transform: uppercase
-        margin-left: 5px
     &-item
       display: flex
       align-items: center
@@ -613,11 +715,48 @@ body
         &:nth-child(1)
           &::after
             background: url("../img/results/bronze.png") no-repeat 0 0/contain
+    &.you
+      //background: $white
+      .table__row-item
+        background: transparent
+        color: #FF267E
+        -webkit-text-fill-color: #FF267E
+      .you
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: $font-favbet-display-med
+        font-size: 10px
+        position: absolute
+        padding-left: 3px
+        left: 13px
+        top: -15px
+        width: 42px
+        height: 45px
+        background: url("../img/table/you.png") no-repeat 0 0/contain
+        transform: translate(-100%, 0)
+        text-transform: uppercase
+  &__btn
+    margin-top: 25px
+    z-index: 1
+  &__bottom
+    font-family: $font-favbet-text-reg
+    color: $white
+    font-size: 10px
+    text-align: center
+    margin: 55px 0 25px 0
+    max-width: 370px
+    z-index: 1
+  &__popup-btn
+    z-index: 1
   &__head
     width: 100%
     display: flex
     align-items: center
     margin: 20px 0 10px 0
+    z-index: 1
+    .table__row
+      border: none
     .table__row-item
       font-family: $font-favbet-display-med
       font-size: 16px
@@ -727,6 +866,195 @@ body
     border-radius: 50%
     display: inline-block
     margin: 0 4px 2px 0
+
+
+.popups
+  position: fixed
+  opacity: 1
+  z-index: 10
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(#090A18E5, .9) url("../img/popup/pattern.png") repeat 0 0/cover
+  background-size: 620px 390px
+  backdrop-filter: blur(5px)
+  display: flex
+  align-items: center
+  justify-content: center
+  &.opacity
+    opacity: 0
+    z-index: 0
+    pointer-events: none
+
+.popup
+  width: 90%
+  max-width: 1000px
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  opacity: 0
+  pointer-events: none
+  max-height: 550px
+  height: fit-content
+  border-radius: 16px 16px 8px 8px
+  border: 1px solid #FF5E9F
+  background: rgba(55, 20, 46, 0.90)
+  box-shadow: 0 0 7.3px 0 rgba(255, 0, 79, 0.92)
+  backdrop-filter: blur(8px)
+  padding: 16px 10px
+  &.active
+    opacity: 1
+    pointer-events: initial
+  &__title
+    color: $white
+    text-align: center
+    font-size: 20px
+    font-family: $font-favbet-display-med
+    text-transform: uppercase
+    width: fit-content
+    margin: 0 auto
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    &::before, &::after
+      content: ""
+      display: block
+      width: 74px
+      height: 74px
+      background: url("../img/popup/title-star.png") no-repeat 0 0/contain
+      margin: -30px 0
+  &__text
+    color: $white
+    font-family: $font-favbet-text-reg
+    font-size: 16px
+    line-height: 24px
+    & > *
+      font-family: inherit
+  &__wrap
+    padding: 16px 10px 16px 16px
+    border-radius: 8px
+    border: 1px solid rgba(255, 255, 255, 0.15)
+    background: rgba(4, 6, 19, 0.25)
+    position: relative
+    z-index: 2
+  &__scroll
+    overflow: auto
+    max-height: 435px
+    padding-right: 5px
+    &::-webkit-scrollbar-thumb
+      width: 5px
+      background: #FF267E
+      box-shadow: 2px 0 3.3px 0 rgba(161, 27, 79, 0.60)
+      border-radius: 8px
+    &::-webkit-scrollbar
+      width: 5px
+      background: rgba($white, .1)
+      box-shadow: 2px 0 3.3px 0 rgba(161, 27, 79, 0.60)
+      border-radius: 8px
+  &__close
+    width: 95px
+    height: 95px
+    position: absolute
+    right: -6px
+    top: -6px
+    background: url("../img/popup/close.png") no-repeat 0 0/contain
+    border: none
+    z-index: 1
+  &--predict
+    max-width: 270px
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    border-radius: 32px 16px 8px 8px
+    &._done
+      border-radius: 8px 16px 8px 8px
+    .popup
+      &__wrap
+        width: 100%
+      &__title
+        z-index: 2
+        &::after
+          content: none
+        &::before
+          position: absolute
+          left: 0
+          top: 0
+          background: url("../img/popup/predict-decor.png") no-repeat 0 0/contain
+          height: 60px
+          width: 100px
+          margin: 0
+          z-index: -1
+          pointer-events: none
+      &__close
+        width: 71px
+        height: 71px
+        right: -4px
+        top: -4px
+      &__done
+        margin: -15px 0 -30px 0
+      &__scroll
+        max-height: 250px
+        width: 100%
+        &-title
+          color: $white
+          font-size: 16px
+          font-family: $font-favbet-text-reg
+          opacity: .5
+          margin-bottom: 16px
+          &._title
+            opacity: 1
+            font-size: 24px
+            text-align: center
+            span
+              &::after
+                text-shadow: 0 4px 6.6px rgba(68, 182, 116, 0.35)
+        &-text
+          font-family: $font-favbet-text-med
+          font-size: 16px
+          line-height: 16px
+          text-shadow: 0 1px 0 rgba(161, 27, 79, 0.60)
+          color: $white
+          margin-top: -7px
+          margin-bottom: 15px
+
+      &__list
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        gap: 16px
+        &-item
+          color: $white
+          font-size: 16px
+          line-height: 16px
+          font-family: $font-favbet-text-reg
+          background: transparent
+          border: none
+          padding: 0
+          width: 190px
+          text-align: left
+          &._select
+            margin-left: 5px
+            background: rgba(5, 196, 138, 0.50)
+            border-radius: 8px
+            padding: 7px 8px 5px 8px
+            position: relative
+            font-family: $font-favbet-text-bold
+            pointer-events: none
+            &::before
+              content: ""
+              display: block
+              position: absolute
+              right: -5px
+              top: 50%
+              transform: translate(0, -50%)
+              width: 28px
+              height: 32px
+              background: url("../img/popup/select-icon.png") no-repeat 0 0/contain
+      &__btn
+        margin-top: 16px
 
 
 body.dark

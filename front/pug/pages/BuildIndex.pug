@@ -2,10 +2,9 @@
 .fav-page.loading
     .spinner-overlay
         .spinner
-
-    .smoke
-        .smoke__decor
     .welcome
+        .smoke
+            .smoke__decor
         .welcome__title._title(data-translate="welcomeTitle")
             span(data-text="накастуй") накастуй
             span(data-text="перемогу") перемогу
@@ -16,6 +15,8 @@
             button.welcome__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
             button.welcome__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
     .info
+        .smoke
+            .smoke__decor
         .info__ward-right
             img(src="img/info/right-ward.png" alt="favbet")
         .info__ward-left
@@ -70,9 +71,27 @@
         .predict__bottom
             .predict__move-left
             .predict__move-right
+        .predict__last
+            .predict__last-icon
+                img(src="img/predict/runes/rune7.png" alt="favbet")
+            .predict__last-text
+                .predict__last-text-item(data-translate="lastPredict") Твій останній прогноз : #[span.last-predict Game Hunters]
+                .predict__last-text-item(data-translate="changePredict") Ти можеш змінити його до 10.09.2025 включно.
         button.predict__btn.btn-popup(data-translate="makeChoice") зробити вибір
         button.predict__confirm-btn.btn2(data-translate="confirmBtn") підтвердити
+        .predict__multi
+            .predict__multi-text(data-translate="multiText") твій множник
+            .predict__multi-counter 10
+
     .table
+        .smoke.dragon
+            .smoke__decor
+            .smoke__animal
+                img(src="img/table/dragon.png" alt="favbet")
+        .smoke.dog
+            .smoke__decor
+            .smoke__animal
+                img(src="img/table/dog.png" alt="favbet")
         .table__title._title(data-translate="tableTitle") #[span(data-text="результати") результати]
         .table__head
             .table__row
@@ -180,7 +199,7 @@
                 .table__row-item 9999999
                 .table__row-item 100000
             .table__row.you
-                .table__row-item 1
+                .table__row-item 1 #[span.you(data-translate="you") you]
                 .table__row-item 4538***
                 .table__row-item 999999
                 .table__row-item 10
@@ -197,8 +216,263 @@
         a.table__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
         button.table__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
         button.table__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
-    .drop
-        details.dropdown
-            summary(data-translate="rulseBtn")
-            .drop-txt
-                .drop-txt-list(data-translate="rules")
+        .table__bottom(data-translate="tableBottom") *Загальний призовий фонд Акції «Накастуй перемогу» складається з 1 000 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – З 28 серпня 2025 року до 14 вересня 2025
+        button.table__popup-btn.btn-popup(data-translate="rulesBtn") Офіційні правила акції
+    .popups.opacity
+        .popup(data-popup="detailsPopup")
+            .popup__title(data-translate="detailsPopupTitle") деталі акції
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__text(data-translate="detailsPopup").
+                        З 28 серпня до 14 вересня 2025 року натискай кнопку «Взяти участь» та набирай бали за виграшні ставки на матчі з дисципліни «Dota 2» у межах кіберспортивного турніру «The International 2025» від 350 ₴.  
+                        Кожна розрахована ставка від 350 ₴ з результатом «Виграш» приносить учаснику 1 (один) ігровий бал в Акції. Якщо Учасник зробив виграшну ставку сумою 700 ₴, що підлягає умовам Акції, то він отримає 2 (два) ігрових бали.  
+                        Ставки повинні бути розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар) або від 3.5 (експрес від 3 подій). Ставки з Бонусного рахунку, з ознакою «Cash Out», «Повернення ставки», ставки вже із застосованим бонусом «Страховка ставки» та ставки з розділу «Fantasy Football» — не враховуються.  
+                        За допомогою правильних прогнозів в розділі «Місії» учасник може помножити вже набрані бали.Кожен правильний прогноз помножує вже набрані бали Учасника на наступну кількість множників:
+
+                        1 виконана місія - бали помножуються на множник х1.5.
+                        2 виконані місії - бали помножуються на множник х2.
+                        3 виконані місії - бали помножуються на множник х2.5.
+                        4 виконані місії - бали помножуються на множник х3.
+                        5 виконаних місій - бали помножуються на множник х3.5.
+                        6 виконаних місій - бали помножуються на множник х4.
+                        7 виконаних місій - бали помножуються на множник х5.
+                        8 виконаних місій - бали помножуються на множник х6.
+
+                        Бали нараховуватимуться та відображатимуться в розділі «Результати». Після завершення Акції, 400 переможців, які наберуть найбільше балів протягом всього періоду проведення Акції, матимуть право на отримання призу.
+        .popup(data-popup="rulesPopup")
+            .popup__title(data-translate="rulesPopupTitle") офіційні правила акції
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__text(data-translate="detailsPopup").
+                        З 28 серпня до 14 вересня 2025 року натискай кнопку «Взяти участь» та набирай бали за виграшні ставки на матчі з дисципліни «Dota 2» у межах кіберспортивного турніру «The International 2025» від 350 ₴.  
+                        Кожна розрахована ставка від 350 ₴ з результатом «Виграш» приносить учаснику 1 (один) ігровий бал в Акції. Якщо Учасник зробив виграшну ставку сумою 700 ₴, що підлягає умовам Акції, то він отримає 2 (два) ігрових бали.  
+                        Ставки повинні бути розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар) або від 3.5 (експрес від 3 подій). Ставки з Бонусного рахунку, з ознакою «Cash Out», «Повернення ставки», ставки вже із застосованим бонусом «Страховка ставки» та ставки з розділу «Fantasy Football» — не враховуються.  
+                        За допомогою правильних прогнозів в розділі «Місії» учасник може помножити вже набрані бали.Кожен правильний прогноз помножує вже набрані бали Учасника на наступну кількість множників:
+
+                        1 виконана місія - бали помножуються на множник х1.5.
+                        2 виконані місії - бали помножуються на множник х2.
+                        3 виконані місії - бали помножуються на множник х2.5.
+                        4 виконані місії - бали помножуються на множник х3.
+                        5 виконаних місій - бали помножуються на множник х3.5.
+                        6 виконаних місій - бали помножуються на множник х4.
+                        7 виконаних місій - бали помножуються на множник х5.
+                        8 виконаних місій - бали помножуються на множник х6.
+
+                        Бали нараховуватимуться та відображатимуться в розділі «Результати». Після завершення Акції, 400 переможців, які наберуть найбільше балів протягом всього періоду проведення Акції, матимуть право на отримання призу.
+        .popup.popup--predict(data-popup="predict1")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict2")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict3")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict4")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict5")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict6")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict7")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict(data-popup="predict8")
+            .popup__title(data-translate="makePredictPopup") зробити прогноз
+            button.popup__close
+            .popup__wrap
+                .popup__scroll
+                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__list
+                        button.popup__list-item Bad luck
+                        button.popup__list-item._select Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+                        button.popup__list-item Bad luck
+            button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+        .popup.popup--predict.active._done(data-popup="done")
+            button.popup__close
+            .popup__done
+                img(src="img/popup/done.png" alt="favbet")
+            .popup__scroll-title._title(data-translate="thanksPopupTitle") #[span(data-text="Дякую") Дякую]
+            .popup__scroll-text(data-translate="thanksPopupText") Прогно прийнято
+            buttonbutton.popup__btn.btn(data-translate="betBtn") зробити ставку
