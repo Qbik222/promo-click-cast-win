@@ -46,7 +46,7 @@
 
     if (activeWeek > 2) activeWeek = 2
 
-    let currentIndex = 0;
+    let currentIndex = 4;
     let startX = 0;
     let isDragging = false;
 
