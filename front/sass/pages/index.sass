@@ -316,10 +316,12 @@ body
       max-width: 200px
       left: -155px
       top: -85px
+      animation: float 4s ease-in-out infinite
     &-right
       max-width: 160px
       top: -80px
       right: -125px
+      animation: float 3.6s ease-in-out infinite
 .predict
   display: flex
   flex-direction: column
@@ -360,6 +362,9 @@ body
       display: flex
       align-items: center
       flex-direction: column
+      &._hide-slide
+        opacity: 0
+        pointer-events: none
       &._active
         opacity: 1
         pointer-events: initial
@@ -446,25 +451,31 @@ body
       width: 29px
       height: 32px
       transform-origin: center
+      transition: all .7s ease-in-out
       z-index: 1
       &._active
         opacity: 1
+        z-index: 2
         pointer-events: initial
         transform: scale(1.45) translate(-50%, -50%)
       &._left1
         opacity: 1
+        z-index: 2
         pointer-events: initial
         transform: scale(1.3) translate(-170%, -60%)
       &._left2
         opacity: 1
+        z-index: 2
         pointer-events: initial
         transform: scale(1.15) translate(-310%, -70%)
       &._right1
         opacity: 1
+        z-index: 2
         pointer-events: initial
         transform: scale(1.3) translate(60%, -60%)
       &._right2
         opacity: 1
+        z-index: 2
         pointer-events: initial
         transform: scale(1.15) translate(180%, -70%)
 
@@ -512,6 +523,7 @@ body
       height: 52px
       position: relative
       cursor: pointer
+      transform-origin: center
       transition: background .5s ease-in-out
       &::before
         content: ""
@@ -520,18 +532,73 @@ body
         height: 91px
         position: absolute
         pointer-events: none
-        left: 50%
-        top: 50%
-        transform: translate(-50%, -50%) rotate(0deg)
+        left: -20px
+        top: -20px
+        transform: rotate(0deg)
+        transform-origin: center
         background: url("../img/predict/runes/runes-move.png") no-repeat 50% 0/contain
+        transition: all .7s ease-in-out
     &-left
       background: url("../img/predict/move-arrow-left.png") no-repeat 0 0/contain
       &:hover
         background: url("../img/predict/move-arrow-left-hover.png") no-repeat 0 0/contain
+      &._rune1
+        &:before
+          transform: rotate(495deg)
+      &._rune2
+        &:before
+          transform: rotate(446deg)
+      &._rune3
+        &:before
+          transform: rotate(401deg)
+      &._rune4
+        &:before
+          transform: rotate(361deg)
+      &._rune5
+        &:before
+          transform: rotate(316deg)
+          left: -19px
+          top: -19px
+      &._rune6
+        &:before
+          transform: rotate(271deg)
+      &._rune7
+        &:before
+          transform: rotate(226deg)
+      &._rune8
+        &:before
+          transform: rotate(181deg)
+
     &-right
       background: url("../img/predict/move-arrow-right.png") no-repeat 0 0/contain
       &:hover
         background: url("../img/predict/move-arrow-right-hover.png") no-repeat 0 0/contain
+      &._rune1
+        &:before
+          transform: rotate(495deg)
+      &._rune2
+        &:before
+          transform: rotate(451deg)
+      &._rune3
+        &:before
+          transform: rotate(401deg)
+      &._rune4
+        &:before
+          transform: rotate(361deg)
+      &._rune5
+        &:before
+          transform: rotate(316deg)
+          left: -19px
+          top: -19px
+      &._rune6
+        &:before
+          transform: rotate(271deg)
+      &._rune7
+        &:before
+          transform: rotate(226deg)
+      &._rune8
+        &:before
+          transform: rotate(181deg)
   &__btn
     z-index: 4
     margin-top: 25px
@@ -1076,3 +1143,11 @@ body.dark
     transform: scale(.8)
   100%
     transform: scale(1)
+
+@keyframes float
+  0%
+    transform: translateY(0)
+  50%
+    transform: translateY(-12px)
+  100%
+    transform: translateY(0)

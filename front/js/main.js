@@ -46,6 +46,11 @@
 
     if (activeWeek > 2) activeWeek = 2
 
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+
+
 
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
@@ -53,7 +58,17 @@
         redirectBtns = document.querySelectorAll('.play-btn'),
         loader = document.querySelector(".spinner-overlay"),
         detailsPopupBtn = document.querySelector(".info__details"),
-        rulesPopupBtn = document.querySelector(".table__popup-btn")
+        rulesPopupBtn = document.querySelector(".table__popup-btn"),
+        slider = document.querySelector('.cards'),
+        items = document.querySelectorAll('.card'),
+        totalItems = items.length,
+        runes = document.querySelectorAll('.predict__runes-item'),
+        buttonsLeft = document.querySelectorAll('.predict__move-left'),
+        buttonsRight = document.querySelectorAll('.predict__move-right')
+
+
+
+
 
 
 
@@ -75,7 +90,7 @@
     if (ukLeng) locale = 'uk';
     if (enLeng) locale = 'en';
 
-    let debug = true
+    let debug = false
 
     if (debug) hideLoader()
 
@@ -147,6 +162,8 @@
             //         // renderUsers(activeWeek, tableData);
             //         participateBtns.forEach(btn => btn.addEventListener('click', participate));
             //     })
+
+            updateSlider();
 
             setTimeout(hideLoader, 300);
 
@@ -524,6 +541,121 @@
         });
     }
 
+
+//slider
+
+    function updateSlider() {
+        items.forEach((item, index) => {
+            const distance = index - currentIndex;
+            const isVisible = Math.abs(distance) <= 1 || (index === 0 && currentIndex === totalItems - 1) || (index === totalItems - 1 && currentIndex === 0);
+            item.classList.toggle('_hide-slide', !isVisible);
+            item.classList.toggle('_active', index === currentIndex);
+
+            updateRunes(currentIndex)
+
+            item.classList.remove('_left', '_right');
+            if (distance === 1 || (currentIndex === totalItems - 1 && index === 0)) {
+                item.classList.add('_right');
+            } else if (distance === -1 || (currentIndex === 0 && index === totalItems - 1)) {
+                item.classList.add('_left');
+            }
+
+            if (!item.classList.contains('_active')) {
+                return;
+            }
+        });
+    }
+
+    function updateRunes(currentIndex) {
+        const runeCount = runes.length;
+
+        console.log(currentIndex + 1);
+
+        [...buttonsLeft, ...buttonsRight].forEach(btn => {
+            for (let i = 1; i <= runeCount; i++) {
+                btn.classList.remove(`_rune${i}`);
+            }
+        });
+
+        const rightRuneIndex = (currentIndex + 1) % runeCount;
+        const leftRuneIndex = (currentIndex - 1 + runeCount) % runeCount;
+
+        const classRuneLeft = runes[leftRuneIndex].getAttribute('data-rune');
+        const classRuneRight = runes[rightRuneIndex].getAttribute('data-rune');
+
+        buttonsLeft.forEach(btn => btn.classList.add(classRuneLeft));
+        buttonsRight.forEach(btn => btn.classList.add(classRuneRight));
+
+        runes.forEach((rune, i) => {
+            rune.classList.remove('_active', '_right1', '_right2', '_left1', '_left2');
+
+            if (i === currentIndex) {
+                rune.classList.add('_active');
+            } else if (i === (currentIndex + 1) % runeCount) {
+                rune.classList.add('_right1');
+            } else if (i === (currentIndex + 2) % runeCount) {
+                rune.classList.add('_right2');
+            } else if (i === (currentIndex - 1 + runeCount) % runeCount) {
+                rune.classList.add('_left1');
+            } else if (i === (currentIndex - 2 + runeCount) % runeCount) {
+                rune.classList.add('_left2');
+            }
+        });
+    }
+
+
+
+    function moveSlider(offset) {
+        currentIndex = (currentIndex + offset + totalItems) % totalItems;
+        updateSlider();
+    }
+
+    function handleStart(event) {
+        isDragging = true;
+        startX = event.clientX || event.touches[0].clientX;
+    }
+
+    function handleMove(event) {
+        if (!isDragging) return;
+
+        const currentX = event.clientX || event.touches[0].clientX;
+        const diffX = currentX - startX;
+
+        if (Math.abs(diffX) > 50) {
+            moveSlider(diffX > 0 ? -1 : 1);
+            isDragging = false;
+        }
+    }
+
+    function handleEnd() {
+        isDragging = false;
+    }
+
+    buttonsLeft.forEach(btn  => {
+        btn.addEventListener('click', () => {
+            moveSlider(-1);
+            btn.style.pointerEvents = 'none';
+            setTimeout(() => { btn.style.pointerEvents = 'initial'; }, 1000);
+        })
+    })
+    buttonsRight.forEach(btn  => {
+        btn.addEventListener('click', () => {
+            moveSlider(1);
+            btn.style.pointerEvents = 'none';
+            setTimeout(() => { btn.style.pointerEvents = 'initial'; }, 1000);
+        })
+    })
+
+    slider.addEventListener('mousedown', handleStart);
+    slider.addEventListener('touchstart', handleStart);
+
+    document.addEventListener('mousemove', handleMove);
+    document.addEventListener('touchmove', handleMove);
+
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchend', handleEnd);
+
+//slider
     // loadTranslations()
     //     .then(init) // запуск ініту сторінки
     init()
