@@ -688,7 +688,12 @@ body
         &__animal
           max-width: 510px
           top: -185px
-          left: 210px
+          opacity: 0
+          left: 170px
+          transition: all 2s ease-in-out
+          &.showItem
+            left: 210px
+            opacity: 1
     &.dog
       top: auto
       bottom: -20px
@@ -701,10 +706,15 @@ body
         background: url("../img/table/smoke-dog-mob.png") no-repeat 0 0/cover
       .smoke
         &__animal
-          right: 130px
           bottom: 0
           max-width: 440px
           z-index: 0
+          opacity: 0
+          right: 80px
+          transition: all 2s ease-in-out
+          &.showItem
+            right: 130px
+            opacity: 1
       &::before
         z-index: 1
         background: linear-gradient(180deg, rgba(9, 10, 24, 0) 28.59%, #090A18 88.44%)

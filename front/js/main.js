@@ -167,6 +167,8 @@
 
             setTimeout(hideLoader, 300);
 
+            showItemsOnScroll(".smoke__animal")
+
             document.querySelectorAll('.popup__close').forEach(closeBtn => {
                 closeBtn.addEventListener('click', closeAllPopups);
             });
@@ -177,19 +179,6 @@
                     openPopupByAttr(popupAttr);
                 });
             });
-
-
-            // document.querySelector('.popups').addEventListener('click', (e) => {
-            //     const openPopupEl = document.querySelector('.popup:not(.active)');
-            //
-            //     console.log(openPopupEl);
-            //     console.log(openPopupEl.contains(e.target));
-            //     console.log(e.target);
-            //
-            //     // if (openPopupEl && !openPopupEl.contains(e.target)) {
-            //     //     closeAllPopups();
-            //     // }
-            // });
 
 
             document.querySelector('.popups').addEventListener('click', (e) => {
@@ -542,6 +531,31 @@
     }
 
 
+    function showItemsOnScroll(itemClass) {
+        const Blocks = document.querySelectorAll(`${itemClass}`);
+        if (!Blocks) return
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+                    setTimeout(() =>{
+                        Blocks.forEach(item => {
+                            item.classList.add("showItem")
+                            observer.unobserve(item)
+                        })
+                    }, 200)
+
+
+                }
+            })
+        }, {
+            threshold: 0.3
+        })
+        Blocks.forEach(item => {
+            observer.observe(item)
+        })
+    }
+    
 //slider
 
     function updateSlider() {
