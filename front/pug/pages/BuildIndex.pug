@@ -1,3 +1,21 @@
+button.menu-btn menu
+.menu-test
+    button.dark-btn dark
+    button.lng-btn en
+    button.auth-btn auth
+    button.popups-btn menu popups
+    .menu-popup.hide
+        button(onclick='openPopupByAttr("detailsPopup")') Деталі акції
+        button(onclick='openPopupByAttr("rulesPopup")') Правила акції
+        button(onclick='openPopupByAttr("predict1")') Прогноз 1
+        button(onclick='openPopupByAttr("predict2")') Прогноз 2
+        button(onclick='openPopupByAttr("predict3")') Прогноз 3
+        button(onclick='openPopupByAttr("predict4")') Прогноз 4
+        button(onclick='openPopupByAttr("predict5")') Прогноз 5
+        button(onclick='openPopupByAttr("predict6")') Прогноз 6
+        button(onclick='openPopupByAttr("predict7")') Прогноз 7
+        button(onclick='openPopupByAttr("predict8")') Прогноз 8
+        button(onclick='openPopupByAttr("done")') Завершення
 
 .fav-page.loading
     .spinner-overlay
@@ -77,8 +95,8 @@
             .predict__last-text
                 .predict__last-text-item(data-translate="lastPredict") Твій останній прогноз : #[span.last-predict Game Hunters]
                 .predict__last-text-item(data-translate="changePredict") Ти можеш змінити його до 10.09.2025 включно.
-        button.predict__btn.btn-popup.open-btn(data-translate="makeChoice" data-popup="predict1") зробити вибір
-        button.predict__confirm-btn.btn2(data-translate="confirmBtn") підтвердити
+        button.predict__btn.btn-popup(data-translate="makeChoice") зробити вибір
+        //button.predict__confirm-btn.btn2(data-translate="confirmBtn") підтвердити
         .predict__multi
             .predict__multi-text(data-translate="multiText") твій множник
             .predict__multi-counter 10
@@ -268,25 +286,22 @@
                 .popup__scroll
                     .popup__scroll-title(data-translate="chooseTeam") Обери команду
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableTeam1")
+                        button.popup__list-item(data-translate="tableTeam2")
+                        button.popup__list-item(data-translate="tableTeam3")
+                        button.popup__list-item(data-translate="tableTeam4")
+                        button.popup__list-item(data-translate="tableTeam5")
+                        button.popup__list-item(data-translate="tableTeam6")
+                        button.popup__list-item(data-translate="tableTeam7")
+                        button.popup__list-item(data-translate="tableTeam8")
+                        button.popup__list-item(data-translate="tableTeam9")
+                        button.popup__list-item(data-translate="tableTeam10")
+                        button.popup__list-item(data-translate="tableTeam11")
+                        button.popup__list-item._select(data-translate="tableTeam12")
+                        button.popup__list-item(data-translate="tableTeam13")
+                        button.popup__list-item(data-translate="tableTeamAny")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict2")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
@@ -294,25 +309,22 @@
                 .popup__scroll
                     .popup__scroll-title(data-translate="chooseTeam") Обери команду
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableTeam1")
+                        button.popup__list-item(data-translate="tableTeam2")
+                        button.popup__list-item(data-translate="tableTeam3")
+                        button.popup__list-item(data-translate="tableTeam4")
+                        button.popup__list-item(data-translate="tableTeam5")
+                        button.popup__list-item(data-translate="tableTeam6")
+                        button.popup__list-item(data-translate="tableTeam7")
+                        button.popup__list-item(data-translate="tableTeam8")
+                        button.popup__list-item(data-translate="tableTeam9")
+                        button.popup__list-item(data-translate="tableTeam10")
+                        button.popup__list-item(data-translate="tableTeam11")
+                        button.popup__list-item._select(data-translate="tableTeam12")
+                        button.popup__list-item(data-translate="tableTeam13")
+                        button.popup__list-item(data-translate="tableTeamAny")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict3")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
@@ -320,129 +332,92 @@
                 .popup__scroll
                     .popup__scroll-title(data-translate="chooseTeam") Обери команду
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableTeam1")
+                        button.popup__list-item(data-translate="tableTeam2")
+                        button.popup__list-item(data-translate="tableTeam3")
+                        button.popup__list-item(data-translate="tableTeam4")
+                        button.popup__list-item(data-translate="tableTeam5")
+                        button.popup__list-item(data-translate="tableTeam6")
+                        button.popup__list-item(data-translate="tableTeam7")
+                        button.popup__list-item(data-translate="tableTeam8")
+                        button.popup__list-item(data-translate="tableTeam9")
+                        button.popup__list-item(data-translate="tableTeam10")
+                        button.popup__list-item(data-translate="tableTeam11")
+                        button.popup__list-item._select(data-translate="tableTeam12")
+                        button.popup__list-item(data-translate="tableTeam13")
+                        button.popup__list-item(data-translate="tableTeamAny")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict4")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
             .popup__wrap
                 .popup__scroll
-                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__scroll-title(data-translate="chooseTeam") Обери значення
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableOptions13")
+                        button.popup__list-item(data-translate="tableOptions14")
+                        button.popup__list-item(data-translate="tableOptions15")
+                        button.popup__list-item(data-translate="tableOptions16")
+                        button.popup__list-item(data-translate="tableOptions17")
+                        button.popup__list-item(data-translate="tableOptions18")
+                        button.popup__list-item(data-translate="tableOptions19")
+                        button.popup__list-item(data-translate="tableOptions20")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict5")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
             .popup__wrap
                 .popup__scroll
-                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__scroll-title(data-translate="chooseTeam") Обери значення
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableOptions1")
+                        button.popup__list-item(data-translate="tableOptions2")
+                        button.popup__list-item(data-translate="tableOptions3")
+                        button.popup__list-item(data-translate="tableOptions4")
+                        button.popup__list-item(data-translate="tableOptions5")
+                        button.popup__list-item(data-translate="tableOptions6")
+                        button.popup__list-item(data-translate="tableOptions7")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict6")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
             .popup__wrap
                 .popup__scroll
-                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__scroll-title(data-translate="chooseTeam") Обери значення
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableOptions1")
+                        button.popup__list-item(data-translate="tableOptions2")
+                        button.popup__list-item(data-translate="tableOptions3")
+                        button.popup__list-item(data-translate="tableOptions4")
+                        button.popup__list-item(data-translate="tableOptions5")
+                        button.popup__list-item(data-translate="tableOptions6")
+                        button.popup__list-item(data-translate="tableOptions8")
+                        button.popup__list-item(data-translate="tableOptions9")
+                        button.popup__list-item(data-translate="tableOptions10")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict7")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
             .popup__wrap
                 .popup__scroll
-                    .popup__scroll-title(data-translate="chooseTeam") Обери команду
+                    .popup__scroll-title(data-translate="chooseTeam") Обери значення
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableOptions2")
+                        button.popup__list-item(data-translate="tableOptions3")
+                        button.popup__list-item(data-translate="tableOptions4")
+                        button.popup__list-item(data-translate="tableOptions5")
+                        button.popup__list-item(data-translate="tableOptions6")
+                        button.popup__list-item(data-translate="tableOptions7")
+                        button.popup__list-item(data-translate="tableOptions8")
+                        button.popup__list-item(data-translate="tableOptions9")
+                        button.popup__list-item(data-translate="tableOptions11")
+                        button.popup__list-item(data-translate="tableOptions12")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict(data-popup="predict8")
             .popup__title(data-translate="makePredictPopup") зробити прогноз
             button.popup__close
@@ -450,25 +425,22 @@
                 .popup__scroll
                     .popup__scroll-title(data-translate="chooseTeam") Обери команду
                     .popup__list
-                        button.popup__list-item Bad luck
-                        button.popup__list-item._select Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
-                        button.popup__list-item Bad luck
+                        button.popup__list-item._select(data-translate="tableTeam1")
+                        button.popup__list-item(data-translate="tableTeam2")
+                        button.popup__list-item(data-translate="tableTeam3")
+                        button.popup__list-item(data-translate="tableTeam4")
+                        button.popup__list-item(data-translate="tableTeam5")
+                        button.popup__list-item(data-translate="tableTeam6")
+                        button.popup__list-item(data-translate="tableTeam7")
+                        button.popup__list-item(data-translate="tableTeam8")
+                        button.popup__list-item(data-translate="tableTeam9")
+                        button.popup__list-item(data-translate="tableTeam10")
+                        button.popup__list-item(data-translate="tableTeam11")
+                        button.popup__list-item._select(data-translate="tableTeam12")
+                        button.popup__list-item(data-translate="tableTeam13")
+                        button.popup__list-item(data-translate="tableTeamAny")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
+
         .popup.popup--predict.active._done(data-popup="done")
             button.popup__close
             .popup__done

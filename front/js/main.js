@@ -1,6 +1,6 @@
 (function () {
 
-    const apiURL = 'https://fav-prom.com/api_your_promo'
+    const apiURL = 'https://fav-prom.com/api_click_cast_win'
 
     const getActiveWeek = (promoStartDate, weekDuration) => {
         const currentDate = new Date();
@@ -38,7 +38,7 @@
 
     let isVerifiedUser = false;
 
-    let periodAmount = 2 // кількість періодів в акції, треба для кешування інфи з табли
+    let periodAmount = 1 // кількість періодів в акції, треба для кешування інфи з табли
 
     let tableData = []
     let activeWeek = getActiveWeek(promoStartDate, weekDuration) || 1;
@@ -49,8 +49,6 @@
     let currentIndex = 4;
     let startX = 0;
     let isDragging = false;
-
-
 
     const mainPage = document.querySelector(".fav-page"),
         unauthMsgs = document.querySelectorAll('.unauth-msg'),
@@ -64,12 +62,9 @@
         totalItems = items.length,
         runes = document.querySelectorAll('.predict__runes-item'),
         buttonsLeft = document.querySelectorAll('.predict__move-left'),
-        buttonsRight = document.querySelectorAll('.predict__move-right')
-
-
-
-
-
+        buttonsRight = document.querySelectorAll('.predict__move-right'),
+        makeChoseBtn = document.querySelector('.predict__btn'),
+        lastPredict = document.querySelector('.predict__last-text-item')
 
 
     const ukLeng = document.querySelector('#ukLeng');
@@ -84,8 +79,8 @@
 
     let loaderBtn = false
 
-    let locale = "en"
-    // let locale = sessionStorage.getItem("locale") || "uk"
+    // let locale = "en"
+    let locale = sessionStorage.getItem("locale") || "uk"
 
     if (ukLeng) locale = 'uk';
     if (enLeng) locale = 'en';
@@ -96,8 +91,10 @@
 
     let i18nData = {};
     const translateState = true;
-    let userId = null;
-    // let userId = Number(sessionStorage.getItem("userId")) ?? null
+    // let userId = null;
+    let userId = Number(sessionStorage.getItem("userId")) ?? null
+
+    // userId = 100300268
 
     const request = function (link, extraOptions) {
         return fetch(apiURL + link, {
@@ -113,15 +110,15 @@
             })
             .catch(err => {
                 console.error('API request failed:', err);
-
-                reportError(err);
-
-                document.querySelector('.fav-page').style.display = 'none';
-                if (window.location.href.startsWith("https://www.favbet.hr/")) {
-                    window.location.href = '/promocije/promocija/stub/';
-                } else {
-                    window.location.href = '/promos/promo/stub/';
-                }
+                //
+                // reportError(err);
+                //
+                // document.querySelector('.fav-page').style.display = 'none';
+                // if (window.location.href.startsWith("https://www.favbet.hr/")) {
+                //     window.location.href = '/promocije/promocija/stub/';
+                // } else {
+                //     window.location.href = '/promos/promo/stub/';
+                // }
 
                 return Promise.reject(err);
             });
@@ -151,45 +148,52 @@
 
 
         function quickCheckAndRender() {
-            // checkUserAuth()
-            //     .then(loadUsers)
-            //     .then(() =>{
-            //         setTimeout(hideLoader, 300);
-            //         document.querySelectorAll(".table__tabs-item").forEach((tab, i) =>{
-            //             tab.classList.remove('active');
-            //             if(i === activeWeek - 1) tab.classList.add('active');
-            //         })
-            //         // renderUsers(activeWeek, tableData);
-            //         participateBtns.forEach(btn => btn.addEventListener('click', participate));
-            //     })
+            checkUserAuth()
+                .then(loadUsers)
+                .then(() =>{
+                    setTimeout(hideLoader, 1000);
+                    document.querySelectorAll(".table__tabs-item").forEach((tab, i) =>{
+                        tab.classList.remove('active');
+                        if(i === activeWeek - 1) tab.classList.add('active');
+                    })
+                    // renderUsers(activeWeek, tableData);
+                    participateBtns.forEach(btn => btn.addEventListener('click', participate));
 
-            updateSlider();
+                    lastPredict.textContent = translateKey("lastPredict")+ " " + translateKey("tableTeam12")
 
-            setTimeout(hideLoader, 300);
+                    updateSlider();
 
-            showItemsOnScroll(".smoke__animal")
+                    showItemsOnScroll(".smoke__animal")
 
-            document.querySelectorAll('.popup__close').forEach(closeBtn => {
-                closeBtn.addEventListener('click', closeAllPopups);
-            });
+                    document.querySelectorAll('.popup__close').forEach(closeBtn => {
+                        closeBtn.addEventListener('click', closeAllPopups);
+                    });
 
-            document.querySelectorAll('.open-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const popupAttr = btn.getAttribute('data-popup');
-                    openPopupByAttr(popupAttr);
-                });
-            });
+                    document.querySelectorAll('.open-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const popupAttr = btn.getAttribute('data-popup');
+                            openPopupByAttr(popupAttr);
+                        });
+                    });
 
+                    makeChoseBtn.addEventListener('click', function (){
+                        this.removeAttribute('data-popup');
+                        this.setAttribute('data-popup', `predict${currentIndex + 1}`);
 
-            document.querySelector('.popups').addEventListener('click', (e) => {
-                const openPopupEl = document.querySelector('.popup.active');
-                const isInside = openPopupEl ? openPopupEl.contains(e.target) : false;
-                if (openPopupEl && !isInside) {
-                    closeAllPopups();
-                }
-            });
+                        const dataPopup = this.getAttribute('data-popup');
 
-            // participateBtns.forEach(btn => btn.addEventListener('click', participate));
+                        openPopupByAttr(dataPopup);
+
+                    });
+
+                    document.querySelector('.popups').addEventListener('click', (e) => {
+                        const openPopupEl = document.querySelector('.popup.active');
+                        const isInside = openPopupEl ? openPopupEl.contains(e.target) : false;
+                        if (openPopupEl && !isInside) {
+                            closeAllPopups();
+                        }
+                    });
+                })
 
             }
 
@@ -214,34 +218,34 @@
         document.body.style.overflow = 'auto';
     }
 
-    function openPopupByAttr(popupAttr) {
-        const allPopups = document.querySelectorAll('.popup');
-        allPopups.forEach(p => p.classList.remove('active'));
-        document.body.style.overflow = 'hidden';
-
-        console.log(popupAttr);
-
-        const targetPopup = document.querySelector(`.popup[data-popup="${popupAttr}"]`);
-        if (targetPopup) {
-            targetPopup.classList.add('active');
-            document.querySelector('.popups').classList.remove('opacity');
-        }
-    }
+    // function openPopupByAttr(popupAttr) {
+    //     const allPopups = document.querySelectorAll('.popup');
+    //     allPopups.forEach(p => p.classList.remove('active'));
+    //     document.body.style.overflow = 'hidden';
+    //
+    //     console.log(popupAttr);
+    //
+    //     const targetPopup = document.querySelector(`.popup[data-popup="${popupAttr}"]`);
+    //     if (targetPopup) {
+    //         targetPopup.classList.add('active');
+    //         document.querySelector('.popups').classList.remove('opacity');
+    //     }
+    // }
 
     function loadTranslations() {
         return request(`/new-translates/${locale}`)
             .then(json => {
                 i18nData = json;
                 translate();
-                const mutationObserver = new MutationObserver(function (mutations) {
-                    mutationObserver.disconnect();
-                    translate();
-                    mutationObserver.observe(targetNode, { childList: true, subtree: true });
-                });
-                mutationObserver.observe(document.getElementById("hardcoreTennis"), {
-                    childList: true,
-                    subtree: true
-                });
+                // const mutationObserver = new MutationObserver(function (mutations) {
+                //     mutationObserver.disconnect();
+                //     translate();
+                //     mutationObserver.observe(targetNode, { childList: true, subtree: true });
+                // });
+                // mutationObserver.observe(document.getElementById("hardcoreTennis"), {
+                //     childList: true,
+                //     subtree: true
+                // });
 
             });
     }
@@ -318,10 +322,10 @@
         if (locale === 'en') {
             mainPage.classList.add('en');
         }
-        refreshLocalizedClass(mainPage);
+        refreshLocalizedClass(mainPage, '');
     }
 
-    function refreshLocalizedClass(element) {
+    function refreshLocalizedClass(element, baseCssClass) {
         if (!element) {
             return;
         }
@@ -516,7 +520,7 @@
 
         for (let i = 1; i <= periodAmount; i++) {
             const week = i; // або будь-яка логіка для формування номера тижня
-            const req = request(`/users/${week}${parametr ? parametr : ""}`).then(data => {
+            const req = request(`/users`).then(data => {
                 console.log(data);
                 tableData.push({ week, users: data });
             });
@@ -670,8 +674,60 @@
     document.addEventListener('touchend', handleEnd);
 
 //slider
-    // loadTranslations()
-    //     .then(init) // запуск ініту сторінки
-    init()
+    loadTranslations()
+        .then(init) // запуск ініту сторінки
+
+    //
+// /// test
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".menu-btn")?.addEventListener("click", () => {
+            document.querySelector(".menu-test")?.classList.toggle("hide");
+        });
+    });
+
+    const lngBtn = document.querySelector(".lng-btn")
+
+    lngBtn.addEventListener("click", () => {
+        if (sessionStorage.getItem("locale")) {
+            sessionStorage.removeItem("locale");
+        } else {
+            sessionStorage.setItem("locale", "en");
+        }
+        window.location.reload();
+    });
+
+    const authBtn = document.querySelector(".auth-btn")
+
+    authBtn.addEventListener("click", () =>{
+        if(userId){
+            sessionStorage.removeItem("userId")
+        }else{
+            sessionStorage.setItem("userId", "100300268")
+        }
+        window.location.reload()
+    });
+
+    const popupsMenu = document.querySelector(".popups-btn");
+
+    popupsMenu.addEventListener("click", () => {
+        document.querySelector(".menu-popup").classList.toggle("hide");
+    })
+
 
 })();
+
+// після тесту видали цю функцію і розкоменти аналогічну в функції виклику
+function openPopupByAttr(popupAttr) {
+    const allPopups = document.querySelectorAll('.popup');
+    allPopups.forEach(p => p.classList.remove('active'));
+    document.body.style.overflow = 'hidden';
+
+    console.log(popupAttr);
+
+    const targetPopup = document.querySelector(`.popup[data-popup="${popupAttr}"]`);
+    if (targetPopup) {
+        targetPopup.classList.add('active');
+        document.querySelector('.popups').classList.remove('opacity');
+    }
+}

@@ -14,6 +14,38 @@ body
   & > *
     font-family: inherit
 
+
+//test
+.menu-btn
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 20
+  width: fit-content
+  background: white
+  padding: 3px
+
+.menu-popup
+  display: flex
+  flex-direction: column
+
+.menu-test
+  position: fixed
+  left: 0
+  top: 25px
+  z-index: 20
+  display: flex
+  gap: 2px
+  flex-direction: column
+  & > button
+    width: fit-content
+    background: white
+    color: black
+    padding: 2px
+    font-family: inherit
+    border-radius: 2px
+
+
 .fav-page
   background: $dark-blue
   display: flex
@@ -161,6 +193,7 @@ body
     height: 70%
     left: 50%
     bottom: -2px
+    //z-index: 2
   &::after
     bottom: 0
     right: 0
@@ -303,7 +336,7 @@ body
     font-family: $font-favbet-text-reg
     max-width: 550px
     text-align: center
-    z-index: 1
+    z-index: 2
     margin-top: 12px
   &__details
     margin-top: 20px
@@ -759,6 +792,7 @@ body
       background-clip: text
       -webkit-background-clip: text
       -webkit-text-fill-color: transparent
+      text-align: center
       &:first-child
         text-align: left
         justify-content: flex-start
