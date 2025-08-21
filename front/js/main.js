@@ -161,13 +161,24 @@
 
                     lastPredict.textContent = translateKey("lastPredict")+ " " + translateKey("tableTeam12")
 
-                    updateSlider();
+                    document.querySelector(".toPredict").addEventListener('click', function () {
+                        const targetElement = document.getElementById("predict");
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 2;
 
-                    showItemsOnScroll(".smoke__animal")
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth',
+                        });
+                    });
+
+                    updateSlider();
 
                     document.querySelectorAll('.popup__close').forEach(closeBtn => {
                         closeBtn.addEventListener('click', closeAllPopups);
                     });
+
+                    showItemsOnScroll(".table")
+                    showItemsOnScroll(".dog-show")
 
                     document.querySelectorAll('.open-btn').forEach(btn => {
                         btn.addEventListener('click', () => {
@@ -536,30 +547,27 @@
 
 
     function showItemsOnScroll(itemClass) {
-        const Blocks = document.querySelectorAll(`${itemClass}`);
-        if (!Blocks) return
+        const Blocks = document.querySelectorAll(itemClass);
+        if (!Blocks.length) return;
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-                    setTimeout(() =>{
-                        Blocks.forEach(item => {
-                            item.classList.add("showItem")
-                            observer.unobserve(item)
-                        })
-                    }, 200)
-
-
+                console.log(entry)
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+                    setTimeout(() => {
+                        entry.target.querySelector(".dragon-show")?.classList.add("showItem")
+                        entry.target.querySelector(".dog-show")?.classList.add("showItem")
+                        observer.unobserve(entry.target);
+                    }, 200);
                 }
-            })
+            });
         }, {
             threshold: 0.3
-        })
-        Blocks.forEach(item => {
-            observer.observe(item)
-        })
+        });
+
+        Blocks.forEach(item => observer.observe(item));
     }
-    
+
 //slider
 
     function updateSlider() {
@@ -620,8 +628,6 @@
             }
         });
     }
-
-
 
     function moveSlider(offset) {
         currentIndex = (currentIndex + offset + totalItems) % totalItems;

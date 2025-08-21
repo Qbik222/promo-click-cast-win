@@ -31,7 +31,7 @@ button.menu-btn menu
             .welcome__prize(data-translate="welcomePrize") #[span 1 000 000 ₴] #[span * ]
             a.welcome__btn.btn.unauth-msg(data-translate="authBtn" href="/login") авторизуйся
             button.welcome__btn.btn.part-btn.hide(data-translate="joinBtn") взяти участь
-            button.welcome__btn.btn.play-btn.hide(data-translate="playBtn") зробити прогноз
+            button.welcome__btn.btn.play-btn.hide.toPredict(data-translate="playBtn") зробити прогноз
     .info
         .smoke
             .smoke__decor
@@ -42,7 +42,7 @@ button.menu-btn menu
         .info__title._title(data-translate="infoTitle") #[span(data-text="Прогнозуй The International 2025") Прогнозуй The International 2025]
         .info__subtitle(data-translate="infoSubtitle") 3 28 серпня по 14 вересня роби ставки від 350₴ на матчі “Dota 2” у турнірі “The International 2025”. Прогнозуй кожну стадію турніру та примножуй набрані бали.
         button.info__details.btn-popup.open-btn(data-translate="infoDetails" data-popup="detailsPopup") Деталі
-    .predict
+    .predict#predict
         .predict__title._title(data-translate="predictTitle") #[span(data-text="накастуй перемогу") накастуй перемогу]
         .predict__cards.cards
             .card._active
@@ -104,11 +104,11 @@ button.menu-btn menu
     .table
         .smoke.dragon
             .smoke__decor
-            .smoke__animal
+            .smoke__animal.dragon-show
                 img(src="img/table/dragon.png" alt="favbet")
         .smoke.dog
             .smoke__decor
-            .smoke__animal
+            .smoke__animal.dog-show
                 img(src="img/table/dog.png" alt="favbet")
         .table__title._title(data-translate="tableTitle") #[span(data-text="результати") результати]
         .table__head
@@ -441,7 +441,7 @@ button.menu-btn menu
                         button.popup__list-item(data-translate="tableTeamAny")
             button.popup__btn.btn2(data-translate="confirmBtn") Підтвердити
 
-        .popup.popup--predict.active._done(data-popup="done")
+        .popup.popup--predict._done(data-popup="done")
             button.popup__close
             .popup__done
                 img(src="img/popup/done.png" alt="favbet")

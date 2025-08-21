@@ -1,3 +1,11 @@
+@media screen and (min-width: 1900px)
+  .popup
+    transform: translate(-50%, -50%) scale(1.7)
+
+@media screen and (min-width: 2300px)
+  .popup
+    transform: translate(-50%, -50%) scale(2)
+
 @media screen and (max-width: 1100px)
   .welcome
     max-width: 768px
@@ -30,7 +38,7 @@
         .smoke
           &__animal
             top: -190px
-            left: 250px
+            left: 190px
       &.dog
         bottom: -120px
         &::after
@@ -55,6 +63,15 @@
           width: 180px
           height: 120px
           font-size: 15px
+
+@media screen and (max-width: 800px)
+  .table
+    .smoke
+      &.dragon
+        .smoke
+          &__animal
+            &.showItem
+              left: 320px
 
 @media screen and (max-width: 700px) and (min-width: 601px)
   .welcome
@@ -195,6 +212,12 @@
       margin-top: -28px
       margin-bottom: -15px
 
+@media screen and (max-width: 460px) and (max-height: 700px) and (orientation: portrait)
+  .popup
+    max-height: 500px
+    &__scroll
+      max-height: 370px
+
 @media screen and (max-width: 390px)
   .table
     &__head, &__body
@@ -215,3 +238,25 @@
     #tableOther
       margin-top: -55px
       margin-bottom: -20px
+
+
+@media screen and (max-width: 950px) and (max-height: 750px) and (orientation: landscape) and (min-height: 500px)
+  .popup
+    max-height: 460px
+    &__scroll
+      max-height: 350px
+
+@media screen and (max-width: 950px) and (max-height: 450px) and (orientation: landscape)
+  .popup
+    max-height: 370px
+    &__scroll
+      max-height: 170px
+    &--predict
+      .popup
+        &__scroll
+          max-height: 170px
+
+
+@media screen and (max-width: 950px) and (max-height: 370px) and (orientation: landscape)
+  .popup
+    transform: translate(-50%, -50%) scale(.8)

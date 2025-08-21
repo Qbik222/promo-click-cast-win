@@ -53,6 +53,8 @@ body
   align-items: center
   overflow: hidden
   padding-bottom: 100px
+  span
+    display: block
   .btn
     display: flex
     align-items: center
@@ -120,11 +122,11 @@ body
 // loader
 
 .spinner-overlay
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   width: 100%
-  height: 100%
+  height: 100vh
   background-color: $white
   display: flex
   justify-content: center
@@ -715,6 +717,7 @@ body
     &.dragon
       bottom: auto
       top: -80px
+      //top: 100px
       background: url("../img/table/smoke-dragon.png") no-repeat 0 0/cover
       @media screen and (max-width: 600px)
         background: url("../img/table/smoke-dragon-mob.png") no-repeat 0 0/cover
@@ -722,7 +725,7 @@ body
         &__animal
           max-width: 510px
           top: -185px
-          opacity: 0
+          opacity: .1
           left: 170px
           transition: all 2s ease-in-out
           &.showItem
@@ -743,7 +746,7 @@ body
           bottom: 0
           max-width: 440px
           z-index: 0
-          opacity: 0
+          opacity: .1
           right: 80px
           transition: all 2s ease-in-out
           &.showItem
@@ -788,10 +791,10 @@ body
       color: $white
       font-family: $font-favbet-text-reg
       font-size: 12px
-      background: linear-gradient(180deg, #FFF 28.84%, #FF267E 222.3%)
-      background-clip: text
-      -webkit-background-clip: text
-      -webkit-text-fill-color: transparent
+      //background: linear-gradient(180deg, #FFF 28.84%, #FF267E 222.3%)
+      //background-clip: text
+      //-webkit-background-clip: text
+      //-webkit-text-fill-color: transparent
       text-align: center
       &:first-child
         text-align: left
@@ -857,7 +860,7 @@ body
     font-size: 10px
     text-align: center
     margin: 55px 0 25px 0
-    max-width: 370px
+    max-width: 320px
     z-index: 1
   &__popup-btn
     z-index: 1
@@ -949,13 +952,10 @@ body
         th
           padding: 0 5px
       p, strong, a
-        font-size: 16px
-        line-height: 26px
+        font-size: 14px
+        line-height: 22px
         //font-family: $font-suisse-intl-reg
         color: $white
-        @media screen and (max-width: 600px)
-          font-size: 14px
-          line-height: 22px
       span
         //font-family: $font-suisse-intl-reg
         display: block
@@ -964,14 +964,22 @@ body
       td
         padding-left: 5px
 
+//contents styles
 
 .retreat1
-  padding-left: 30px
+  padding-left: 20px
   strong
     font-family: $font-suisse-intl-bold
     color: $white
+
+.retreat2
+  padding-left: 40px
+  strong
+    font-family: $font-suisse-intl-bold
+    color: $white
+
 .circle
-  padding-left: 35px
+  padding-left: 20px
   &:before
     content: ''
     width: 5px
@@ -979,7 +987,17 @@ body
     background: $white
     border-radius: 50%
     display: inline-block
-    margin: 0 4px 2px 0
+    margin: 0 8px 3px 0
+
+@media screen and (max-width: 600px)
+  .circle
+    padding-left: 15px
+  .retreat1
+    padding-left: 15px
+  .retreat2
+    padding-left: 30px
+
+//contents styles
 
 
 .popups
@@ -1048,8 +1066,8 @@ body
   &__text
     color: $white
     font-family: $font-favbet-text-reg
-    font-size: 16px
-    line-height: 24px
+    font-size: 14px
+    line-height: 22px
     & > *
       font-family: inherit
   &__wrap
@@ -1082,6 +1100,11 @@ body
     background: url("../img/popup/close.png") no-repeat 0 0/contain
     border: none
     z-index: 1
+    transition: all .5s ease-in-out
+    &:hover
+      cursor: pointer
+      filter: drop-shadow(0 0px 1px rgba(#fff, .6))
+
   &--predict
     max-width: 270px
     width: 100%
